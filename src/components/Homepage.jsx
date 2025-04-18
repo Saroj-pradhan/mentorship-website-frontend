@@ -47,10 +47,10 @@ const HomePage = () => {
         
 
         {/* Card 4 */}
-        <Link to="/mentors" className="bg-[#E5E9FF] text-black rounded-xl p-6 shadow-lg flex flex-col justify-between hover:scale-105 transition-transform">
+        <Link to="/student" className="bg-[#E5E9FF] text-black rounded-xl p-6 shadow-lg flex flex-col justify-between hover:scale-105 transition-transform">
           <div>
-            <h3 className="text-xl font-bold">Growth</h3>
-            <p className="text-sm mt-2">Track your learning and upskill journey</p>
+            <h3 className="text-xl font-bold">Student</h3>
+            <p className="text-sm mt-2">connect with Talented Students</p>
           </div>
          <p>Upskill your self </p>
         </Link>
