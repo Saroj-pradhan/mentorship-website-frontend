@@ -38,10 +38,10 @@ function Signup() {
       setLoading(false);
       toast.success(response.data.message || "Signup successful!");
      
-      // setTimeout(() => {
-      //   navigate('/login');
-      // }, 2000);
-         navigate('/login');  
+      setTimeout(() => {
+        navigate('/login');
+      }, 2000);
+      
     } catch (error) {
       setLoading(false);
       if (error.response) {

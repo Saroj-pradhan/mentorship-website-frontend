@@ -1,4 +1,4 @@
-import React, { useRef, useContext } from 'react';
+import React, {useState, useRef, useContext } from 'react';
 import { datacont } from '../context/Context';
 import { useNavigate } from 'react-router-dom';
 import axios from '../utils/Axios';
@@ -8,19 +8,20 @@ import Loader from './Loader';
 function Login() {
   const navigate = useNavigate();
   const { isloggedin, utoken, setutoken, setlogin } = useContext(datacont);
-  
+  const [loading, setLoading] = useState(false);
   const emailRef = useRef();
   const passwordRef = useRef();
   
   function handleLogin(e) {
     e.preventDefault();
-    
+    setLoading(true);
     axios
       .post("/user/login", {
         id: emailRef.current.value,
         password: passwordRef.current.value,
       })
       .then((res) => {
+        setLoading(false);
         toast.success(res.data.message);
         const token = res.data.token;
         setutoken(token);
@@ -32,11 +33,13 @@ function Login() {
         console.log("Stored Token:", sessionStorage.getItem("usertoken"));
       })
       .catch((error) => {
+        setLoading(false);
         console.log(error);
     
         console.log(error.response.data);
            toast.error(error.response.data);
       });
+    
   }
 
   return (

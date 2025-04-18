@@ -7,7 +7,7 @@ const Landingpage= () => {
     <div className="bg-[#060D1F]">
        <Home></Home>
 
-      <header className="container mx-auto px-4 mb-8 text-center  h-60  flex flex-col justify-center items-center">
+      <header className="container mx-auto px-4 mb-8 text-center  h-60  flex flex-col justify-center items-center ml-1 mr-1">
         <h1 className="text-4xl font-bold text-indigo-700 mb-2">Connect with Your Fellow Alumni</h1>
         <p className="text-lg text-gray-600">Reignite connections, share experiences, and build your network.</p>
         <div className="mt-6 ">
@@ -20,7 +20,7 @@ const Landingpage= () => {
         </div>
       </header>
 
-      <main className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <main className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ml-1 mr-1">
         {/* Section 1: Latest News & Events */}
         <div className="bg-white rounded-lg shadow-md p-6">
           <h2 className="text-xl font-semibold text-gray-800 mb-4">Latest News & Events</h2>
