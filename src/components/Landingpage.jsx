@@ -4,7 +4,7 @@ import Home from './Home';
 const Landingpage= () => {
   return (
     
-    <div className="bg-gray-50 ">
+    <div className="bg-[#060D1F]">
        <Home></Home>
 
       <header className="container mx-auto px-4 mb-8 text-center  h-60  flex flex-col justify-center items-center">
@@ -38,17 +38,17 @@ const Landingpage= () => {
           <h2 className="text-xl font-semibold text-gray-800 mb-4">Featured Alumni</h2>
           <div className="space-y-4">
             <div className="flex items-center">
-              <img src="/images/alumni_profile_1.jpg" alt="Alumni Profile 1" className="w-12 h-12 rounded-full mr-3 object-cover" />
+              <img src="https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?semt=ais_hybrid&w=740" alt="Alumni Profile 1" className="w-12 h-12 rounded-full mr-3 object-cover" />
               <div>
-                <h3 className="text-md font-semibold text-gray-900">[Alumni Name 1]</h3>
-                <p className="text-sm text-gray-600">[Profession/Class Year]</p>
+                <h3 className="text-md font-semibold text-gray-900">shankar lakra</h3>
+                <p className="text-sm text-gray-600">iot Engineer</p>
               </div>
             </div>
             <div className="flex items-center">
-              <img src="/images/alumni_profile_2.jpg" alt="Alumni Profile 2" className="w-12 h-12 rounded-full mr-3 object-cover" />
+              <img src="https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?semt=ais_hybrid&w=740" alt="Alumni Profile 2" className="w-12 h-12 rounded-full mr-3 object-cover" />
               <div>
-                <h3 className="text-md font-semibold text-gray-900">[Alumni Name 2]</h3>
-                <p className="text-sm text-gray-600">[Profession/Class Year]</p>
+                <h3 className="text-md font-semibold text-gray-900">sagar maharana</h3>
+                <p className="text-sm text-gray-600">Java developer</p>
               </div>
             </div>
             {/* Add more featured alumni */}
@@ -87,7 +87,7 @@ const Landingpage= () => {
           <ul className="list-disc pl-5 text-gray-700">
             <li>Career counseling services</li>
             <li>Job board for alumni</li>
-            <li>Access to university libraries (if applicable)</li>
+            <li> university libraries </li>
           </ul>
           <Link to="/resources" className="text-indigo-600 hover:underline mt-2 block text-sm">Discover Resources</Link>
         </div>
@@ -102,7 +102,7 @@ const Landingpage= () => {
       </main>
 
       <footer className="container mx-auto px-4 py-8 text-center text-gray-500 mt-12 border-t border-gray-200">
-        <p>&copy; {new Date().getFullYear()} [Your University Name] Alumni Association</p>
+        <p>&copy; {new Date().getFullYear()} VSSUT Alumni Association</p>
         {/* Add more footer links if needed */}
       </footer>
     </div>

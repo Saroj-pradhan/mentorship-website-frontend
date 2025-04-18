@@ -40,7 +40,7 @@ function Login() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 to-blue-300 flex items-center justify-center">
+    <div className="min-h-screen bg-gradient-to-br bg-[#060D1F] flex items-center justify-center">
       <ToastContainer />
       <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md">
         <h2 className="text-3xl font-bold text-center text-blue-700 mb-6">Student Login</h2>

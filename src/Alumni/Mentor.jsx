@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { datacont } from '../context/Context';
 import axios from '../utils/Axios';
 import { useNavigate } from 'react-router-dom';
-import { X } from 'lucide-react';
+
 
 function Mentor() {
   const { mentor, setmentor } = useContext(datacont);

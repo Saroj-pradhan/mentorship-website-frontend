@@ -35,9 +35,10 @@ function Nav() {
 
           {/* Middle Section */}
           <div className="hidden md:flex space-x-6">
-            <Link to="/" className="text-gray-700 hover:text-indigo-600">Home</Link>
-            <Link to="/mentors" className="text-gray-700 hover:text-indigo-600">Mentor</Link>
-            <Link to="/community" className="text-gray-700 hover:text-indigo-600">Community</Link>
+            <Link to="/" className="text-gray-700 hover:text-indigo-600          font-bold ">Home</Link>
+            <Link to="/mentors" className="text-gray-700 hover:text-indigo-600   font-bold ">Mentor</Link>
+            <Link to="/student" className="text-gray-700 hover:text-indigo-600   font-bold ">Student</Link>
+            <Link to="/community" className="text-gray-700 hover:text-indigo-600 font-bold ">Community</Link>
           </div>
 
           {/* Right Section */}

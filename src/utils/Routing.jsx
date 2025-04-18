@@ -10,7 +10,8 @@ import ALogin from '../Alumni/components/ALogin';
 import Mentor from '../Alumni/Mentor';
 import Community from './Community';
 import Profile from '../Alumni/components/Profile';
-
+import Student from '../components/Student';
+import Mprofile from '../components/Mprofile';
 function Routing(){
     return(
         <>
@@ -24,6 +25,8 @@ function Routing(){
             <Route path="/asignup" element={<ASignup/>} />
              <Route path="/alogin" element={<ALogin/>}/>
              <Route path="/mentors" element={<ProtectedRoute><Mentor/></ProtectedRoute>}/>
+             <Route path="/student" element={<ProtectedRoute><Student/></ProtectedRoute>}/>
+             <Route path="/student/:id" element={<ProtectedRoute><Mprofile/></ProtectedRoute>}/>
              <Route path="/community" element={<ProtectedRoute><Community/></ProtectedRoute>}/>
              <Route path="/mentor/:id" element={<Profile />} />
        </Routes>
