@@ -40,9 +40,9 @@ function Student() {
                 {s.college ? `Student at ${s.college}` : 'Student'}
               </p>
 
-              <p className="text-xs text-gray-500 mt-2">
+              {/* <p className="text-xs text-gray-500 mt-2">
                 You and 3 others follow {s.name.split(' ')[0]}
-              </p>
+              </p> */}
 
               <button
                 className="mt-4 px-4 py-2 text-sm border border-green-500 text-green-600 rounded-full font-medium hover:bg-green-50"
