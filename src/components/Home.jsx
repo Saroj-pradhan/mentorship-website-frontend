@@ -18,7 +18,7 @@ function Home(){
    },[isloggedin])
     return(
         <>
-        <div className="test bg-[#060D1F] mt-6">
+        <div className="">
           {/* home */}
           <HomePage></HomePage>
        {/*  */}

@@ -24,10 +24,10 @@ function Routing(){
            <Route path="/alumni" element={<AHomepage/>}/>
             <Route path="/asignup" element={<ASignup/>} />
              <Route path="/alogin" element={<ALogin/>}/>
-             <Route path="/mentors" element={<ProtectedRoute><Mentor/></ProtectedRoute>}/>
-             <Route path="/student" element={<ProtectedRoute><Student/></ProtectedRoute>}/>
+             <Route path="/mentors" element={<Mentor/>}/>
+             <Route path="/student" element={<Student/>}/>
              <Route path="/student/:id" element={<ProtectedRoute><Mprofile/></ProtectedRoute>}/>
-             <Route path="/community" element={<ProtectedRoute><Community/></ProtectedRoute>}/>
+             <Route path="/community" element={<Community/>}/>
              <Route path="/mentor/:id" element={<Profile />} />
        </Routes>
         </>

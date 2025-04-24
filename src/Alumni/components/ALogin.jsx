@@ -10,7 +10,7 @@ import { Admincont } from '../../context/AContext';
 
 function ALogin() {
   const navigate = useNavigate();
-  const {isadlogin,setadlogin ,atoken, setatoken} = useContext(Admincont);
+  const {isadlogin,setadlogin ,atoken, setatoken,alumni,setalumni} = useContext(Admincont);
   
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -27,10 +27,15 @@ function ALogin() {
         toast.success(res.data.message);
         const token = res.data.token;
         setatoken(token);
+        console.log(emailRef.current.value);
+        
+        setalumni(emailRef.current.value);
+      
         
         console.log(res.headers);
          setadlogin(true);
         sessionStorage.setItem("admintoken", token);
+        sessionStorage.setItem("alumniid",emailRef.current.value);
         navigate("/alumni");
         console.log("Stored Token:", sessionStorage.getItem("usertoken"));
       })

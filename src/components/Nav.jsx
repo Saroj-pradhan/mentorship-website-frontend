@@ -21,14 +21,16 @@ function Nav() {
   const handleLogout = () => {
     setlogin(false);
     setadlogin(false);
-    setutoken('');
+    sessionStorage.removeItem("admintoken");
+    sessionStorage.removeItem("alumniid");
     sessionStorage.removeItem("usertoken");
+    sessionStorage.removeItem("userid");
     navigate('/'); // Redirect to home or login
   };
 
   return (
     <nav className="bg-white shadow">
-      <div className="container mx-auto px-4">
+      <div className="px-4">
         <div className="flex justify-between items-center py-4">
           {/* Left Section: M-connect */}
           <div className="text-xl font-bold text-indigo-600">M-connect</div>

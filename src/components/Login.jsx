@@ -7,7 +7,7 @@ import Loader from './Loader';
 
 function Login() {
   const navigate = useNavigate();
-  const { isloggedin, utoken, setutoken, setlogin } = useContext(datacont);
+  const { isloggedin, utoken, setutoken, setlogin ,setuser,user } = useContext(datacont);
   const [loading, setLoading] = useState(false);
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -25,12 +25,13 @@ function Login() {
         toast.success(res.data.message);
         const token = res.data.token;
         setutoken(token);
-        
+        setuser(emailRef.current.value);
         console.log(res.headers);
         setlogin(true);
         sessionStorage.setItem("usertoken", token);
+        sessionStorage.setItem("userid",emailRef.current.value);
         navigate("/Landingpage");
-        console.log("Stored Token:", sessionStorage.getItem("usertoken"));
+       
       })
       .catch((error) => {
         setLoading(false);
