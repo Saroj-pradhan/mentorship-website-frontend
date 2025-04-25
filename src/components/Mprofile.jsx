@@ -1,9 +1,10 @@
 import React, { useContext } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import {Admincont} from '../context/AContext'
 import {MessageSquareTextIcon } from 'lucide-react'
 import {Phone} from 'lucide-react'
 function Mprofile() {
+  const navigate = useNavigate();
   const {id} =useParams();
   console.log(id);
   const{student , setstudent} = useContext(Admincont);
@@ -29,7 +30,7 @@ function Mprofile() {
       <p><strong>Email</strong> {std[0].id}</p>
        </div>
        <div className='ml-4 flex mt-3'>
-        <button className='w-24 h-10 text-white  bg-blue-600 m-2 flex items-center gap-1 justify-center'>
+        <button onClick={()=>navigate(`/smessage/${id}`)} className='w-24 h-10 text-white  bg-blue-600 m-2 flex items-center gap-1 justify-center'>
           <MessageSquareTextIcon className="w-4" />
           message</button>
         <button className='w-20 h-10 text-white bg-green-500 m-2 flex items-center gap-2 justify-center'><Phone className='w-4' />call</button>

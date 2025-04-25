@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { datacont } from '../../context/Context';
 import { PhoneIcon, MessageSquareTextIcon } from 'lucide-react';
 
 function Profile() {
   const { id } = useParams();
   const { mentor } = useContext(datacont);
-
+  const navigate = useNavigate();
   const selectedMentor = mentor?.find((m) => m._id === id);
 
   if (!selectedMentor) return <p className="p-4">Loading mentor profile or mentor not found...</p>;
@@ -61,7 +61,7 @@ function Profile() {
           )}
 
           <div className="flex gap-4 mt-6">
-            <button className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+            <button onClick={()=>navigate(`/rmessage/${selectedMentor.id}`)} className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
               <MessageSquareTextIcon className="w-4 h-4" />
               Message
             </button>
