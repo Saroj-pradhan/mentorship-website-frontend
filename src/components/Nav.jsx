@@ -29,8 +29,8 @@ function Nav() {
   };
 
   return (
-    <nav className="bg-white shadow">
-      <div className="px-4">
+    <nav className="bg-white shadow w-full fixed z-50  ">
+      <div className="px-4 ">
         <div className="flex justify-between items-center py-4">
           {/* Left Section: M-connect */}
           <div className="text-xl font-bold text-indigo-600">M-connect</div>

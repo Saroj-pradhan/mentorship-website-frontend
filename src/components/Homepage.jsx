@@ -3,23 +3,23 @@ import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   return (
-    <div className="bg-[#060D1F] min-h-screen w-full flex justify-between flex-col sm:flex-row   text-white px-6 py-10 md:px-20">
+    <div className="bg-[#060D1F] min-h-screen w-full flex justify-between flex-col sm:flex-row h-screen pt-20  text-white px-6 py-10 md:px-20 ">
       {/* Left Side */}
       <div className="   md:w-1/2  flex flex-col justify-center md:mb-1 ">
         <h1 className="text-4xl w-80  mt-1 md:text-5xl font-bold leading-tight mb-6">
-          Your one stop solution {' '}
+          Your one stop solution <br></br>
           <span className="text-blue-500 "> to connect with alumni  </span>
         </h1>
        
         {/* <div className=" w-32 h-1 bg-blue-500 rounded-full"></div> */}
-        <Link to="/mentors" className=""><button className='w-40 mt-2 py-4 rounded bg-yellow-800'> get started </button></Link>
+        <Link to="/mentors" className="mt-7 mb-7"><button className='w-40 mt-2 py-4 rounded bg-amber-500 text-black font-bold'> get started </button></Link>
         
       </div>
 
       {/* Right Side */}
-      <div className="md:w-1/2  grid grid-cols-1 sm:grid-cols-2 gap-6 ">
+      <div className="md:w-1/2  grid grid-cols-2  gap-6 ">
 
-      <Link to="/mentors" className="bg-[#FFF2DC] text-black rounded-xl p-6 shadow-lg flex flex-col justify-between hover:scale-105 transition-transform">
+      <Link to="/mentors" className="bg-[#FFF2DC] text-black rounded-xl p-6 shadow-lg  flex flex-col justify-between hover:scale-105 transition-transform sm:max-h-30%">
           <div>
             <h3 className="text-xl font-bold">Mentors</h3>
             <p className="text-sm mt-2">300+ Mentors, 5000+ Queries Resolved</p>

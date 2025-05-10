@@ -1,13 +1,13 @@
 import React, { useContext } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import {Admincont} from '../context/AContext'
+import { datacont } from '../context/Context'
 import {MessageSquareTextIcon } from 'lucide-react'
 import {Phone} from 'lucide-react'
 function Mprofile() {
   const navigate = useNavigate();
   const {id} =useParams();
   console.log(id);
-  const{student , setstudent} = useContext(Admincont);
+  const{student , setstudent} = useContext(datacont);
   console.log(student);
   const std = student?student.filter((ev)=>{return (ev._id == id)?ev:""}):"";
   console.log(std);

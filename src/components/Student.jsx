@@ -1,12 +1,12 @@
 import React, { useContext, useEffect } from 'react';
-import { Admincont } from '../context/AContext';
+
 import { datacont } from '../context/Context';
 import axios from '../utils/Axios';
 import { useNavigate } from 'react-router-dom';
 
 function Student() {
-  const { student, setstudent  } = useContext(Admincont);
-  const {user } = useContext(datacont);
+  const { student, setstudent,user  } = useContext(datacont);
+ 
   const navigate = useNavigate();
 
   useEffect(() => {

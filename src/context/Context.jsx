@@ -2,12 +2,11 @@ import {createContext, useEffect, useState} from 'react';
 import axios from '../utils/Axios'
 export const datacont = createContext();
 function Context(props){
-   
+       const [student,setstudent] = useState([]);
   const [user, setuser] = useState("");
   const [utoken, setutoken] = useState("");
   const [isloggedin, setlogin] = useState(false);
  
-  const [mentor ,setmentor] = useState([]);
    
     useEffect(()=>{
       const afterrefresh = sessionStorage.getItem("usertoken");
@@ -22,7 +21,7 @@ function Context(props){
     },[])
 return(
   <>
-  <datacont.Provider value={{user, setuser, isloggedin, setlogin, utoken, setutoken ,mentor ,setmentor}}>
+  <datacont.Provider value={{user, setuser, isloggedin, setlogin, utoken, setutoken,student,setstudent }}>
     {props.children}
   </datacont.Provider>
   </>

@@ -1,5 +1,6 @@
 import {Routes,Route } from 'react-router-dom'
 import ProtectedRoute from '../components/ProtectedRoute'
+import Protectmentor from './Protectmentor';
 import Landingpage from '../components/Landingpage';
 import Home from '../components/Home';
 import Signup from '../components/Signup'
@@ -30,7 +31,7 @@ function Routing(){
              <Route path="/student" element={<Student/>}/>
              <Route path="/student/:id" element={<ProtectedRoute><Mprofile/></ProtectedRoute>}/>
              <Route path="/community" element={<Community/>}/>
-             <Route path="/mentor/:id" element={<Profile />} />
+             <Route path="/mentor/:id" element={<Protectmentor><Profile /></Protectmentor>} />
              <Route path="/smessage/:id" element={<Smessage/>} />
              <Route path="/rmessage/:id" element={<Rmessage/>} />
 

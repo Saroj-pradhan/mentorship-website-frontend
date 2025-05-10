@@ -1,24 +1,3 @@
-// import React,{useContext, useEffect} from 'react'
-// import {datacont} from '../context/Context'
-// import {useNavigate} from 'react-router-dom';
-// function ProtectedRoute({children}) {
-//     const nevigate = useNavigate();
-//   const {isloggedin,setlogin} = useContext(datacont);
-//   console.log(isloggedin);
-//   useEffect(()=>{
-// console.log(isloggedin);
-// if(!isloggedin){
-//   nevigate("/");
-// }
-//   },[isloggedin])
-//   return (
-//     <>
-//         {isloggedin?children:<p>not signed  - protected route</p>}
-//     </>
-//   )
-// }
-
-// export default ProtectedRoute
 
 import React, { useContext, useEffect } from 'react';
 import { datacont } from '../context/Context';

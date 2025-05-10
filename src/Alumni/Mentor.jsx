@@ -1,26 +1,19 @@
 import React, { useContext, useEffect } from 'react';
-import { datacont } from '../context/Context';
+
 import {Admincont} from '../context/AContext' 
 import axios from '../utils/Axios';
 import { useNavigate } from 'react-router-dom';
 
 
 function Mentor() {
-  const { mentor, setmentor } = useContext(datacont);
+  const { mentor, setmentor } = useContext(Admincont);
   const {alumni} = useContext(Admincont);
   const navigate = useNavigate();
   
 
   useEffect(() => {
-    axios.get('/admin/getadmins')
-      .then((res) => {
-        console.log('Admin List:', res.data);
-        setmentor(res.data);
-        console.log(alumni);
-      })
-      .catch((err) => {
-        console.error('Error fetching admin list:', err);
-      });
+    console.log("all ok");
+    
   }, []);
 
   return (

@@ -30,7 +30,7 @@ const Landingpage= () => {
             <li>Alumni Success Story: [Saroj pradhan]</li>
             {/* Add more news items */}
           </ul>
-          <Link to="/news" className="text-indigo-600 hover:underline mt-2 block text-sm">View All News</Link>
+          <Link to="/news" className="text-indigo-600 hover:underline mt-2 block text-sm ">View All News</Link>
         </div>
 
         {/* Section 2: Featured Alumni Profiles */}

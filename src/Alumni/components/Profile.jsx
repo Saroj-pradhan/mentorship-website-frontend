@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { datacont } from '../../context/Context';
+
 import { PhoneIcon, MessageSquareTextIcon } from 'lucide-react';
+import { Admincont } from '../../context/AContext';
 
 function Profile() {
   const { id } = useParams();
-  const { mentor } = useContext(datacont);
+  const { mentor } = useContext(Admincont);
   const navigate = useNavigate();
   const selectedMentor = mentor?.find((m) => m._id === id);
 

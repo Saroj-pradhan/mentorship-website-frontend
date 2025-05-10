@@ -22,9 +22,9 @@ function Home(){
           {/* home */}
           <HomePage></HomePage>
        {/*  */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4 pt-11">
       {/* Section 1: Job Referrals */}
-      <div className="bg-gray-100 rounded-lg shadow-md p-6">
+      <div className="bg-gray-100 rounded-lg shadow-md p-6 ">
         <div className="flex items-center mb-2">
           <h3 className="text-xl font-semibold text-gray-800 mr-2">Job Referrals</h3>
           <span role="img" aria-label="globe">🌐</span>
