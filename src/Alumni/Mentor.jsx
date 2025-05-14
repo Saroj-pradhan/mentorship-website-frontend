@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 import {Admincont} from '../context/AContext' 
 import axios from '../utils/Axios';
@@ -9,19 +9,49 @@ function Mentor() {
   const { mentor, setmentor } = useContext(Admincont);
   const {alumni} = useContext(Admincont);
   const navigate = useNavigate();
-  
-
+  const [query,setquery] = useState("");
+const [filtermentor , setfiltermentor] =useState("");
   useEffect(() => {
-    console.log("all ok");
-    
-  }, []);
 
+console.log(query);
+if(query.trim() === ""){
+ 
+  setfiltermentor(mentor);
+}else{
+   const filtermntr = mentor.filter((m)=> m.name.toLowerCase().includes(query.toLowerCase()));
+  setfiltermentor(filtermntr);
+}
+
+
+
+
+  }, [query,mentor]);
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
       <h2 className="text-2xl font-bold mb-6 text-gray-700">Mentors You May Know</h2>
-      {mentor && mentor.length > 0 ? (
+       <div className="mb-6">
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Search Mentors you may know "
+              className="w-full py-3 pl-12 pr-4 border border-gray-300 rounded-lg "
+              value = {query}
+              onChange={(e)=>{
+                setquery(e.target.value) ;
+                
+              }}
+            />
+            <div className="absolute left-4 top-3.5">
+               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                </svg>
+
+            </div>
+          </div>
+        </div>
+      {filtermentor && mentor.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {mentor.map((m) => (
+          {filtermentor.map((m) => (
            (m.id !== alumni)?( <div
             key={m._id}
             className="bg-white rounded-xl shadow hover:shadow-lg transition relative p-4 flex flex-col items-center text-center cursor-pointer"

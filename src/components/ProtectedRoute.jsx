@@ -11,12 +11,21 @@ function ProtectedRoute({ children }) {
   const { isadlogin } = useContext(Admincont);
 
   useEffect(() => {
-    // If neither user nor admin is logged in, redirect to home
-    if (!isloggedin && !isadlogin) {
+  const checkstudentlogin = sessionStorage.getItem("userid");
+   const checkmentorlogin = sessionStorage.getItem("alumniid");
+   console.log(checkstudentlogin);
+   console.log(checkmentorlogin);
+   
+   
+   
+     if (!checkstudentlogin && !checkmentorlogin) {
      
       navigate('/login');
+
     }
-  }, [isloggedin, isadlogin, navigate]);
+ 
+      
+  }, [isloggedin, isadlogin]);
 
   // If either is true, allow access
   if (isloggedin || isadlogin) {

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 import { datacont } from '../context/Context';
 import axios from '../utils/Axios';
@@ -6,26 +6,43 @@ import { useNavigate } from 'react-router-dom';
 
 function Student() {
   const { student, setstudent,user  } = useContext(datacont);
- 
+ const [filterstudent , setfilterstudent] = useState("");
+ const [query,setquery] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('/user/getstudents') // 👈 Adjust this endpoint as per your API
-      .then((res) => {
-        console.log('Student List:', res.data);
-        setstudent(res.data);
-      })
-      .catch((err) => {
-        console.error('Error fetching student list:', err);
-      });
-  }, []);
+   
+    console.log(query);
+    if(query.trim() === ""){
+      setfilterstudent(student);
+    }else{
+      const fltrstd = student.filter((s)=> s.name.toLowerCase().includes(query.toLowerCase()));
+      setfilterstudent(fltrstd);
+    }
+    
+  }, [query,student]);
 
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
       <h2 className="text-2xl font-bold mb-6 text-gray-700">Students You May Know</h2>
-      {student && student.length > 0 ? (
+      <div className="mb-6 w-full relative">
+        <div className=''>
+          <input type="text" name="" id="" className='w-full py-3 pl-12 pr-4 border border-gray-300 rounded-lg'
+        placeholder='find Student you may know '
+        onChange={(e)=>setquery(e.target.value)}
+        value={query}
+        />
+        </div>
+        <div className='absolute left-4 top-3.5'>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                </svg>
+
+        </div>
+      </div>
+      {student && filterstudent.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {student.map((s) => (
+          {filterstudent.map((s) => (
           (user!== s.id)?( <div
             key={s._id}
             className="bg-white rounded-xl shadow hover:shadow-lg transition relative p-4 flex flex-col items-center text-center cursor-pointer"
