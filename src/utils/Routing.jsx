@@ -15,11 +15,13 @@ import Student from '../components/Student';
 import Mprofile from '../components/Mprofile';
 import Smessage from '../components/Smessage';
 import Rmessage from '../Alumni/components/Rmessage';
+import Communitypost from './Communitypost';
+
 function Routing(){
     return(
         <>
         <Routes>
-            <Route path="/" element={<Landingpage/>}/>
+            <Route path="/" element={<Home/>}/>
             <Route path="/signup" element={<Signup/>} />
              <Route path="/login" element={<Login/>}/>
            <Route path="/Landingpage" element={<ProtectedRoute><Landingpage/></ProtectedRoute>}></Route>
@@ -31,6 +33,7 @@ function Routing(){
              <Route path="/student" element={<Student/>}/>
              <Route path="/student/:id" element={<ProtectedRoute><Mprofile/></ProtectedRoute>}/>
              <Route path="/community" element={<Community/>}/>
+             <Route path="/communitypost" element={<ProtectedRoute><Communitypost/></ProtectedRoute>}/>
              <Route path="/mentor/:id" element={<Protectmentor><Profile /></Protectmentor>} />
              <Route path="/smessage/:id" element={<Smessage/>} />
              <Route path="/rmessage/:id" element={<Rmessage/>} />

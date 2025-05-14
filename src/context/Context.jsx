@@ -12,12 +12,20 @@ function Context(props){
       const afterrefresh = sessionStorage.getItem("usertoken");
       const userid = sessionStorage.getItem("userid") ;
       if(userid){
-        setuser(userid)
+        setuser(userid);
       }
       if (afterrefresh) {
         setlogin(true);
         setutoken(afterrefresh);  
       }
+      axios.get('/user/getstudents') 
+      .then((res) => {
+        console.log('Student List:', res.data);
+        setstudent(res.data);
+      })
+      .catch((err) => {
+        console.error('Error fetching student list:', err);
+      });
     },[])
 return(
   <>

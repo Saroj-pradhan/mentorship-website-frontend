@@ -53,7 +53,7 @@ const Landingpage= () => {
             </div>
             {/* Add more featured alumni */}
           </div>
-          <Link to="/alumni" className="text-indigo-600 hover:underline mt-2 block text-sm">Meet More Alumni</Link>
+          <Link to="/mentors" className="text-indigo-600 hover:underline mt-2 block text-sm">Meet More Alumni</Link>
         </div>
 
         {/* Section 3: Connect & Network */}
