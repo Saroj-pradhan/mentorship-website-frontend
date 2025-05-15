@@ -67,8 +67,8 @@ function Profile() {
               Message
             </button>
             <button className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
-              <PhoneIcon className="w-4 h-4" />
-              Call
+            
+              Follow
             </button>
           </div>
         </div>

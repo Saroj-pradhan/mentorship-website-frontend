@@ -1,27 +1,32 @@
 import React, { useContext, useEffect, useState } from 'react';
-
+import Loader from './Loader';
 import { datacont } from '../context/Context';
 import axios from '../utils/Axios';
 import { useNavigate } from 'react-router-dom';
 
 function Student() {
+   const[loading,setloading] = useState(false);
   const { student, setstudent,user  } = useContext(datacont);
  const [filterstudent , setfilterstudent] = useState("");
  const [query,setquery] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
-   
+   setloading(true);
     console.log(query);
     if(query.trim() === ""){
       setfilterstudent(student);
+      setloading(false);
     }else{
       const fltrstd = student.filter((s)=> s.name.toLowerCase().includes(query.toLowerCase()));
       setfilterstudent(fltrstd);
+      setloading(false);
     }
     
   }, [query,student]);
-
+  if(loading){
+    return <Loader></Loader>
+  }
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
       <h2 className="text-2xl font-bold mb-6 text-gray-700">Students You May Know</h2>
@@ -72,7 +77,7 @@ function Student() {
        ))}
      </div>
       ) : (
-        <p>Loading students or no student data available...</p>
+        <Loader></Loader>
       )}
     </div>
   );

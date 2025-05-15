@@ -33,7 +33,7 @@ function Mprofile() {
         <button onClick={()=>navigate(`/smessage/${id}`)} className='w-24 h-10 text-white  bg-blue-600 m-2 flex items-center gap-1 justify-center'>
           <MessageSquareTextIcon className="w-4" />
           message</button>
-        <button className='w-20 h-10 text-white bg-green-500 m-2 flex items-center gap-2 justify-center'><Phone className='w-4' />call</button>
+        <button className='w-20 h-10 text-white bg-green-500 m-2 flex items-center gap-2 justify-center'>Follow</button>
        </div>
         </div>:<p>not ok</p>}
     </div>

@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   return (
-    <div className="bg-[#060D1F] min-h-screen w-full flex justify-between flex-col sm:flex-row h-screen pt-20  text-white px-6 py-10 md:px-20 ">
+    <div className="bg-[#060D1F]  w-full flex justify-between flex-col sm:flex-row h-fit pt-30  text-white px-6 py-20 md:px-20 ">
       {/* Left Side */}
-      <div className="   md:w-1/2  flex flex-col justify-center md:mb-1 ">
+      <div className=" min-h-fit  md:w-1/2  flex flex-col justify-center md:mb-1 ">
         <h1 className="text-4xl w-80  mt-1 md:text-5xl font-bold leading-tight mb-6">
           Your one stop solution <br></br>
           <span className="text-blue-500 "> to connect with alumni  </span>
@@ -17,9 +17,9 @@ const HomePage = () => {
       </div>
 
       {/* Right Side */}
-      <div className="md:w-1/2  grid grid-cols-2  gap-6 ">
+      <div className="md:w-1/2 min-h-fit grid grid-cols-2  gap-6 ">
 
-      <Link to="/mentors" className="bg-[#FFF2DC] text-black rounded-xl p-6 shadow-lg  flex flex-col justify-between hover:scale-105 transition-transform sm:max-h-30%">
+      <Link to="/mentors" className="bg-[#FFF2DC] text-black rounded-xl p-6 shadow-lg  flex flex-col justify-between hover:scale-105 transition-transform max-h-15% sm:max-h-30%">
           <div>
             <h3 className="text-xl font-bold">Mentors</h3>
             <p className="text-sm mt-2">300+ Mentors, 5000+ Queries Resolved</p>

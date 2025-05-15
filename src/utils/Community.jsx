@@ -1,28 +1,23 @@
 import React,{useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from '../utils/Axios';
+import Loader from '../components/Loader';
 const Community = () => {
-  
+     const[loading,setloading] = useState(false);
   const [articles,setarticles] = useState([]);
+  const [errors,seterror] = useState(false);
   useEffect(()=>{
-    console.log("mount");
-  //   const res = fetch('http://localhost:5000/community/getpost')
-  //   .then((res)=>res.json()
-     
-  //   ).then((data)=>{
-  //  console.log(data);
-  //  setarticles(data.data);
-  //   }).catch((error)=>{
-  //     console.log(error);
-      
-    // })
+    setloading(true)
     axios.get('/community/getpost')
   .then((res) => {
-    console.log(res.data);
-    setarticles(res.data.data); // assuming `data.data` is correct structure
+    setarticles(res.data.data); 
+  setloading(false);
+  seterror(false);
   })
   .catch((error) => {
     console.log('Error fetching posts:', error);
+   seterror(true);
+   setloading(false);
   });
   },[])
   const navigate = useNavigate();
@@ -30,11 +25,13 @@ const Community = () => {
 console.log("gffggfffgfg");
 navigate("/communitypost");
  }
-
+if(loading){
+  return <Loader></Loader>
+}
   return (
     <div className="bg-gray-50 min-h-screen py-8 px-4 sm:px-6 lg:px-8 pt-28">
       <div className="max-w-5xl mx-auto ">
-        <div className=" fixed top-0 left-32 right-32  flex justify-between items-center mb-8 bg-white z-40 pt-24 pb-3">
+        <div className="   flex justify-between items-center mb-8 bg-white  ">
           <h1 className="text-3xl font-bold text-black ">Community Insights</h1>
           <button onClick={()=>postdata()} className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg ">
             Share Your Story
@@ -103,11 +100,7 @@ navigate("/communitypost");
           ))}
         </div>
         
-        <div className="mt-8 text-center">
-          <button className="bg-white border border-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-50">
-            Load More Articles
-          </button>
-        </div>
+       {errors?<p>try after some time or refresh it </p>:""}
       </div>
     </div>
   );

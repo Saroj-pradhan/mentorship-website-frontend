@@ -3,9 +3,11 @@ import React, { useContext, useEffect, useState } from 'react';
 import {Admincont} from '../context/AContext' 
 import axios from '../utils/Axios';
 import { useNavigate } from 'react-router-dom';
+import Loader from '../components/Loader';
 
 
 function Mentor() {
+
   const { mentor, setmentor } = useContext(Admincont);
   const {alumni} = useContext(Admincont);
   const navigate = useNavigate();
@@ -26,6 +28,7 @@ if(query.trim() === ""){
 
 
   }, [query,mentor]);
+  
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
       <h2 className="text-2xl font-bold mb-6 text-gray-700">Mentors You May Know</h2>
@@ -87,7 +90,11 @@ if(query.trim() === ""){
           ))}
         </div>
       ) : (
-        <p>Loading mentors or no mentor data available...</p>
+        <div>
+          <p>Loading mentors or error in server  try after some time ...</p>
+          <Loader></Loader>
+        </div>
+        
       )}
     </div>
   );

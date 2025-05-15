@@ -1,18 +1,17 @@
-import {useContext ,useEffect } from 'react';
+import {useContext ,useEffect, useState } from 'react';
 import {Link , useNavigate} from 'react-router-dom'
 import HomePage from './Homepage';
-// import Context from '../context'
-
+import Loader from './Loader';
 import { datacont } from '../context/Context';
 function Home(){
   const navigate = useNavigate();
   
-   
+   const[loading,setloading] = useState(false);
       const { isloggedin, utoken, setutoken, setlogin } = useContext(datacont);
   useEffect(()=>{
     
     if(isloggedin){
-      navigate("/Landingpage");
+      navigate("/");
     }
     
    },[isloggedin])
@@ -101,7 +100,7 @@ function Home(){
       </header>
 
       <main className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ml-1 mr-1">
-        {/* Section 1: Latest News & Events */}
+        {/* Section 1: */}
         <div className="bg-white rounded-lg shadow-md p-6">
           <h2 className="text-xl font-semibold text-gray-800 mb-4">Latest News & Events</h2>
           <ul className="list-disc pl-5 text-gray-700">
@@ -113,7 +112,7 @@ function Home(){
           <Link to="/news" className="text-indigo-600 hover:underline mt-2 block text-sm ">View All News</Link>
         </div>
 
-        {/* Section 2: Featured Alumni Profiles */}
+        {/* Section 2: */}
         <div className="bg-white rounded-lg shadow-md p-6">
           <h2 className="text-xl font-semibold text-gray-800 mb-4">Featured Alumni</h2>
           <div className="space-y-4">
@@ -131,12 +130,12 @@ function Home(){
                 <p className="text-sm text-gray-600">Java developer</p>
               </div>
             </div>
-            {/* Add more featured alumni */}
+          
           </div>
           <Link to="/mentors" className="text-indigo-600 hover:underline mt-2 block text-sm">Meet More Alumni</Link>
         </div>
 
-        {/* Section 3: Connect & Network */}
+     
         <div className="bg-white rounded-lg shadow-md p-6">
           <h2 className="text-xl font-semibold text-gray-800 mb-4">Connect & Network</h2>
           <p className="text-gray-700 mb-3">Join groups based on your interests, department, or location. Expand your professional and personal network.</p>
@@ -148,7 +147,7 @@ function Home(){
           <Link to="/mentors" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-4 inline-block text-sm">Explore Connections</Link>
         </div>
 
-        {/* Section 4: Share Your Experiences */}
+        {/* Section 4:*/}
         <div className="bg-white rounded-lg shadow-md p-6">
           <h2 className="text-xl font-semibold text-gray-800 mb-4">Share Your Experiences</h2>
           <p className="text-gray-700 mb-3">Contribute to our community by sharing your career journey, insights, and advice for current students and fellow alumni.</p>
@@ -160,7 +159,7 @@ function Home(){
           <Link to="/community" className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full mt-4 inline-block text-sm">Share Your Story</Link>
         </div>
 
-        {/* Section 5: Alumni Resources */}
+        {/* Section 5: */}
         <div className="bg-white rounded-lg shadow-md p-6">
           <h2 className="text-xl font-semibold text-gray-800 mb-4">Alumni Resources</h2>
           <p className="text-gray-700 mb-3">Access valuable resources to support your career development and personal growth.</p>
@@ -172,7 +171,7 @@ function Home(){
           <Link to="/resources" className="text-indigo-600 hover:underline mt-2 block text-sm">Discover Resources</Link>
         </div>
 
-        {/* Section 6: Support Our Alma Mater */}
+        {/* Section 6:*/}
         <div className="bg-white rounded-lg shadow-md p-6">
           <h2 className="text-xl font-semibold text-gray-800 mb-4">Support Our poor students</h2>
           <p className="text-gray-700 mb-3">Give back to the institution that shaped your future. Your contributions help us support current students and enhance the university.</p>
@@ -180,12 +179,58 @@ function Home(){
           <Link to="/support" className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full mt-4 inline-block text-sm">Give Back</Link>
         </div>
       </main>
-
-      <footer className="container mx-auto px-4 py-8 text-center text-gray-500 mt-12 border-t border-gray-200">
-        <p>&copy; {new Date().getFullYear()} VSSUT Alumni Association</p>
-        {/* Add more footer links if needed */}
-      </footer>
     </div>
+
+ 
+
+    <footer className="bg-gray-900 text-white py-8 pt-20">
+      <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+ 
+        <div>
+          <h1 className="text-2xl font-bold text-blue-400">M-connect</h1>
+          <p className="mt-2 text-sm text-gray-400">
+            Your one-stop solution to connect with alumni & mentors.
+          </p>
+        </div>
+
+  
+        <div>
+          <h3 className="text-lg font-semibold mb-3">Quick Links</h3>
+          <ul className="space-y-2 text-sm text-gray-300">
+            <li><a href="/" className="hover:text-white">Home</a></li>
+            <li><a href="/mentors" className="hover:text-white">Mentor</a></li>
+            <li><a href="/student" className="hover:text-white">Student</a></li>
+            <li><a href="/community" className="hover:text-white">Community</a></li>
+          </ul>
+        </div>
+
+        {/* Contact Info */}
+        <div>
+          <h3 className="text-lg font-semibold mb-3">Contact</h3>
+          <ul className="text-sm text-gray-300 space-y-1">
+            <li>Email: support@mconnect.com</li>
+            <li>Phone: +91 98765 43210</li>
+          </ul>
+        </div>
+
+        {/* Social Media */}
+        <div>
+          <h3 className="text-lg font-semibold mb-3">Follow Us</h3>
+          <div className="flex flex-col space-y-3">
+            <a href="https://www.linkedin.com/in/saroj-pradhan-a10490240/" className="hover:text-blue-400">LinkedIn</a>
+            <a href="https://x.com/_saroj_pradhan" className="hover:text-blue-400">Twitter</a>
+            <a href="https://discord.com/channels/@me" className="hover:text-blue-400">Discord</a>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Bar */}
+      <div className="text-center text-gray-500 text-sm mt-6 border-t border-gray-700 pt-4">
+        © {new Date().getFullYear()} M-connect. All rights reserved.
+      </div>
+    </footer>
+
+
 
 
         </>
