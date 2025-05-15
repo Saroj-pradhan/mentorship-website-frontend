@@ -1,21 +1,29 @@
 import React,{useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import axios from '../utils/Axios';
 const Community = () => {
   
   const [articles,setarticles] = useState([]);
   useEffect(()=>{
     console.log("mount");
-    const res = fetch('http://localhost:5000/community/getpost')
-    .then((res)=>res.json()
+  //   const res = fetch('http://localhost:5000/community/getpost')
+  //   .then((res)=>res.json()
      
-    ).then((data)=>{
-   console.log(data);
-   setarticles(data.data);
-    }).catch((error)=>{
-      console.log(error);
+  //   ).then((data)=>{
+  //  console.log(data);
+  //  setarticles(data.data);
+  //   }).catch((error)=>{
+  //     console.log(error);
       
-    })
+    // })
+    axios.get('/community/getpost')
+  .then((res) => {
+    console.log(res.data);
+    setarticles(res.data.data); // assuming `data.data` is correct structure
+  })
+  .catch((error) => {
+    console.log('Error fetching posts:', error);
+  });
   },[])
   const navigate = useNavigate();
  function postdata(){
